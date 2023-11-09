@@ -68,7 +68,7 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
                         "type": "text",
                         "text": f"{diff}",
                     },
-                    {"type": "text", "text": "Now, improve the prompt to generate the first given image in Dalle-3 based on the initial prompt and the difference between the generated image and the target image. Only the prompt needs to be returned."},
+                    {"type": "text", "text": "Now, improve the prompt to generate the first given image in Dalle-3, based on the initial prompt and the difference between the generated image and the target image. Only the prompt needs to be returned with the following style: \"<prompt>\""},
                 ],
             }
         ],
