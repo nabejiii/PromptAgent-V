@@ -1,0 +1,7 @@
+#!/bin/bash
+for file in data/origin_*.jpg
+do
+    id=$(basename $file .jpg | cut -d'_' -f2)
+    mkdir -p "data/image_${id}"
+    mv $file "data/image_${id}/"
+done

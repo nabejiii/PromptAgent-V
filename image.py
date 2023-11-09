@@ -2,17 +2,28 @@ import base64
 import imgsim
 import numpy as np
 import cv2
+import os
+from dotenv import load_dotenv
+import requests
+
+load_dotenv()
+
+api_key = os.environ['OPENAI_API_KEY_V']
 
 # argument "image_path": string
-# return "encoded_string": string
+# return "image_url": string
 def encode_image(image_path):
+    if image_path.startswith("http"):
+        return image_path
+    
     # jpg以外は受け付けない
     if not image_path.endswith(".jpg") and not image_path.endswith(".jpeg") and not image_path.endswith(".JPG") and not image_path.endswith(".JPEG"):
         raise Exception("The image must be jpg.")
     
     with open(image_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-        return encoded_string
+        image_url = f"data:image/jpeg;base64,{encoded_string}"
+        return image_url
     
 
 # argument "image_path1": string, "image_path2": string
@@ -28,3 +39,33 @@ def image_val(img_path1, img_path2):
 
     dist = imgsim.distance(vec0, vec1)
     return dist
+
+# argument "prompt": string
+# return "image_url": string
+def crete_image(prompt):
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+    payload = {
+        "model": "dall-e-3",
+        "prompt": prompt,
+        "n": 1,
+        "size": "1024x1024",
+    }
+    response = requests.post(
+        "https://api.openai.com/v1/images/generations",
+        headers=headers,
+        json=payload
+    )
+    response.raise_for_status()
+
+    # print(response.json())
+
+    image_url = response.json()["data"][0]["url"]
+    return image_url
+
+# テスト
+prompt = "High-resolution photograph of a contemporary rural Japanese landscape with a modern wooden shack in the foreground, showing power lines and parked cars, residential houses with recent architectural designs scattered in the middle ground, and lush, tree-covered hills in the background, under a clear blue sky with bright daylight."
+image_url = crete_image(prompt)
+print(image_url)
