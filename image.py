@@ -2,9 +2,9 @@ import base64
 import imgsim
 import numpy as np
 import cv2
+import requests
 import os
 from dotenv import load_dotenv
-import requests
 
 load_dotenv()
 
@@ -39,6 +39,14 @@ def image_val(img_path1, img_path2):
 
     dist = imgsim.distance(vec0, vec1)
     return dist
+
+# argument "image_path": string, "image_url": string
+def save_image(image_path, image_url):
+    response = requests.get(image_url, stream=True)
+    response.raise_for_status()
+    with open(image_path, 'wb') as out_file:
+        out_file.write(response.content)
+    print(f"Image successfully downloaded to {image_path}")
 
 # argument "prompt": string
 # return "image_url": string
