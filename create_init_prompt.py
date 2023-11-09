@@ -10,14 +10,7 @@ api_key = os.environ['OPENAI_API_KEY_V']
     
 # argument "image_path": string
 # return "prompt": string
-def create_init_prompt(image_path):
-    # 画像のパスがURLの場合はそのまま使う
-    image_url = image_path
-    # 画像のパスがローカルの場合はbase64にエンコードする
-    if not image_path.startswith("http"):
-        base64_image = encode_image(image_path)
-        image_url = f"data:image/jpeg;base64,{base64_image}"
-
+def create_init_prompt(image_url):
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}"
