@@ -5,15 +5,19 @@ import cv2
 import requests
 
 # argument "image_path": string
-# return "encoded_string": string
+# return "image_url": string
 def encode_image(image_path):
+    if image_path.startswith("http"):
+        return image_path
+    
     # jpg以外は受け付けない
     if not image_path.endswith(".jpg") and not image_path.endswith(".jpeg") and not image_path.endswith(".JPG") and not image_path.endswith(".JPEG"):
         raise Exception("The image must be jpg.")
     
     with open(image_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-        return encoded_string
+        image_url = f"data:image/jpeg;base64,{encoded_string}"
+        return image_url
     
 
 # argument "image_path1": string, "image_path2": string
