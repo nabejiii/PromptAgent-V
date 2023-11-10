@@ -81,8 +81,8 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
     print(response.choices[0].message.content)
     return response.choices[0].message.content
 
-
-pre_prompt = "Realistic photograph of a rural Japanese landscape with a single wooden shack in the foreground, traditional residential houses scattered in the middle ground, and a large, tree-covered hill dominating the background, under a bright blue sky with clear daylight."
-gen_image = "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Xtb0SN2sQ7TzezyqKkAKmi47/user-b0BTx2MPgLXIaO6363eZSiC3/img-K0Y0TuSrh7RuYLAsIjgIUjc5.png?st=2023-11-09T04%3A23%3A42Z&se=2023-11-09T06%3A23%3A42Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-11-09T04%3A12%3A31Z&ske=2023-11-10T04%3A12%3A31Z&sks=b&skv=2021-08-06&sig=CBrewZJr13KrtF%2BNwyY0PQaYrBi7GEs5JkgnteSM/7o%3D"
-# explain_diff("data/origin/origin_1.jpg", gen_image, pre_prompt)
-improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
+if __name__ == "__main__":
+    pre_prompt = "Realistic photograph of a rural Japanese landscape with a single wooden shack in the foreground, traditional residential houses scattered in the middle ground, and a large, tree-covered hill dominating the background, under a bright blue sky with clear daylight."
+    gen_image = "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Xtb0SN2sQ7TzezyqKkAKmi47/user-b0BTx2MPgLXIaO6363eZSiC3/img-K0Y0TuSrh7RuYLAsIjgIUjc5.png?st=2023-11-09T04%3A23%3A42Z&se=2023-11-09T06%3A23%3A42Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-11-09T04%3A12%3A31Z&ske=2023-11-10T04%3A12%3A31Z&sks=b&skv=2021-08-06&sig=CBrewZJr13KrtF%2BNwyY0PQaYrBi7GEs5JkgnteSM/7o%3D"
+    # explain_diff("data/origin/origin_1.jpg", gen_image, pre_prompt)
+    improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
