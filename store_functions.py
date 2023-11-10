@@ -1,10 +1,10 @@
 import os
 import csv
 
-# arguments "image_num": string, "prompts": list of strings, "evaluations": list of floats
-def store_evaluations(image_num, prompts, evaluations):
+# arguments "image_num": string, "prompts": list of strings, "evaluations": list of floats, "img_dir": string
+def store_evaluations(image_num, prompts, evaluations, img_dir):
     # Create the directory if it doesn't exist
-    directory = os.path.join("data", "image_" + image_num, "data_" + image_num)
+    directory = os.path.join("data", "image_" + image_num, img_dir)
     if not os.path.exists(directory):
         os.makedirs(directory)
     
@@ -17,10 +17,10 @@ def store_evaluations(image_num, prompts, evaluations):
     with open(file_path, 'a', newline='') as file:
         writer = csv.writer(file)
         if unique_id == 0:  # Write header only for the first row
-            writer.writerow(["ID", "Prompt", "Evaluation"])
+            writer.writerow(["ID", "Prompt", "Evaluation", "Image_path"])
         
         for prompt, evaluation in zip(prompts, evaluations):
-            writer.writerow([unique_id, prompt, evaluation])
+            writer.writerow([unique_id, prompt, evaluation, directory])
             unique_id += 1
 
     print(f"Prompts and evaluations successfully saved to {file_path}")
