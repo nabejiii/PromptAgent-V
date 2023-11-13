@@ -1,6 +1,7 @@
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
+import csv
 
 from create_init_prompt import create_init_prompt
 from improvement import improve_prompt
@@ -31,12 +32,31 @@ class search():
         new_image = crete_image(new_prompt)
         new_score = image_val(self.origin_image, new_image)
         
-        # save image
         self.prompts.append(new_prompt)
-        save_image(f"data/image_{self.image_num}/gen_image_{len(self.images)}.jpg", new_image)
+        self.images.append(new_image)
         self.scores.append(new_score)
         
     def search_greedy(self, max_layer):
         for i in range(max_layer):
             self.greedy_step()
-        store_evaluation(self.image_num, self.prompts, self.images, self.scores)
+        self.store_evaluation(self.image_num, self.prompts, self.images, self.scores)
+
+    def store_evaluation(self, image_num, prompts, images, scores):
+        directory = os.path.join("data", "image_" + image_num, "data")
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        
+        file_path = os.path.join(directory, "evaluation.csv")
+        
+        unique_id = len(os.listdir(directory))
+
+        with open(file_path, 'a', newline='') as file:
+            writer = csv.writer(file)
+            if unique_id == 0:
+                writer.writerow(["ID", "Prompt", "Image", "Evaluation"])
+                unique_id += 1
+            for prompt, image, score in zip(prompts, images, scores):
+                writer.writerow([unique_id, prompt, image, score])
+                unique_id += 1
+
+        print(f"Prompts and evaluations successfully saved to {file_path}")
