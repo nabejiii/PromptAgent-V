@@ -13,7 +13,7 @@ from image import image_val, create_image, save_image
 
 class search_beam():
     def __init__(self, image_num, dir_name, beam_width, num):
-        # load_dotenv()
+        load_dotenv()
         self.image_num = image_num
         self.origin_image = os.path.join("data", "image_" + str(image_num), "origin_" + str(image_num) + ".jpg")
         if not os.path.exists(self.origin_image):
