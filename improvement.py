@@ -33,7 +33,11 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
                     },
                     {
                         "type": "text",
-                        "text": "Generate with the following style: \"diff:\n<diff>\n\nprompt:\n<prompt>\"",
+                        "text": "Generate with the following style: \"diff:\n<diff>\n\nprompt:\n<new prompt>\"",
+                    },
+                    {
+                        "type": "text",
+                        "text": "In the <diff> and <new prompt> sections, output only the contents of the diff and the new prompt.",
                     }
                 ],
             }
@@ -44,7 +48,6 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
     if response.choices[0].finish_reason != None:
         print("explain_diff error, finish_reason:", response.choices[0].finish_reason)
         exit(1)
-    print(response.choices[0].message.content)
     
     diff, prompt = extract_diff_and_prompt(response.choices[0].message.content)
     
@@ -65,5 +68,7 @@ def extract_diff_and_prompt(text):
 # if __name__ == "__main__":
 #     pre_prompt = "Photorealistic landscape of a rural scene with a small wooden shack in the foreground, residential houses in the middle distance and a tree-covered hill under a clear blue sky in the background, daytime lighting."
 #     gen_image = "gen_1.jpg"
-#     # explain_diff("data/origin/origin_1.jpg", gen_image, pre_prompt)
-#     improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
+#     diff, prompt = improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
+#     print(diff)
+#     print("=======================")
+#     print(prompt)
