@@ -3,9 +3,11 @@ import os
 from dotenv import load_dotenv
 import csv
 
-from create_init_prompt import create_init_prompt
-from improvement import improve_prompt
-from image import image_val, create_image, save_image
+# from create_init_prompt import create_init_prompt
+# from improvement import improve_prompt
+# from image import image_val, create_image, save_image
+
+from mock import image_val, create_image, save_image, improve_prompt, create_init_prompt
 
 class greedy_search():
     def __init__(self, image_num, dir_name):
@@ -66,8 +68,9 @@ class greedy_search():
             for prompt, image, score in zip(self.prompts, self.images, self.scores):
                 writer.writerow([image_id, prompt, image, score])
                 image_id += 1
-
+                
         print(f"Prompts and evaluations successfully saved to {file_path}")
-        
-# s = greedy_search(1, "greedy_1")
-# s.store_evaluation()
+
+# if __name__ == "__main__":
+#     greedy = greedy_search(1, "greedy_1")
+#     greedy.search(10)
