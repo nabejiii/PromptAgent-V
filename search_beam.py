@@ -1,25 +1,27 @@
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import csv
-from openai import OpenAI
+# from openai import OpenAI
 import queue 
 
-from create_init_prompt import create_init_prompt
-from improvement import improve_prompt
-from image import image_val, create_image, save_image
+# from create_init_prompt import create_init_prompt
+# from improvement import improve_prompt
+# from image import image_val, create_image, save_image
+
+from mock import create_init_prompt, improve_prompt, image_val, create_image, save_image
 
 
 class search_beam():
     def __init__(self, image_num, dir_name, beam_width):
-        load_dotenv()
+        # load_dotenv()
         self.image_num = image_num
-        self.origin_image = "data/image/origin_" + str(image_num) + ".jpg"
+        self.origin_image = os.path.join("data", "image_" + str(image_num), "origin_" + str(image_num) + ".jpg")
         if not os.path.exists(self.origin_image):
             raise Exception("The image does not exist: " + self.origin_image)
         
-        self.client = OpenAI(
-            api_key=os.environ["OPENAI_API_KEY_V"],
-        )
+        # self.client = OpenAI(
+        #     api_key=os.environ["OPENAI_API_KEY_V"],
+        # )
         self.directory = os.path.join("data", "image_" + str(self.image_num), dir_name)
         if not os.path.exists(self.directory):
             os.makedirs(self.directory)
