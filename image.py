@@ -50,7 +50,7 @@ def save_image(image_path, image_url):
 
 # argument "prompt": string
 # return "image_url": string
-def crete_image(prompt):
+def create_image(prompt):
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}"
@@ -73,7 +73,8 @@ def crete_image(prompt):
     image_url = response.json()["data"][0]["url"]
     return image_url
 
-# テスト
-prompt = "High-resolution photograph of a contemporary rural Japanese landscape with a modern wooden shack in the foreground, showing power lines and parked cars, residential houses with recent architectural designs scattered in the middle ground, and lush, tree-covered hills in the background, under a clear blue sky with bright daylight."
-image_url = crete_image(prompt)
-print(image_url)
+if __name__ == "__main__":
+    # テスト
+    prompt = "High-resolution photograph of a contemporary rural Japanese landscape with a modern wooden shack in the foreground, showing power lines and parked cars, residential houses with recent architectural designs scattered in the middle ground, and lush, tree-covered hills in the background, under a clear blue sky with bright daylight."
+    image_url = create_image(prompt)
+    print(image_url)

@@ -47,7 +47,8 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
     return response.choices[0].message.content
 
 
-pre_prompt = "Photorealistic landscape of a rural scene with a small wooden shack in the foreground, residential houses in the middle distance and a tree-covered hill under a clear blue sky in the background, daytime lighting."
-gen_image = "gen_1.jpg"
-# explain_diff("data/origin/origin_1.jpg", gen_image, pre_prompt)
-improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
+if __name__ == "__main__":
+    pre_prompt = "Photorealistic landscape of a rural scene with a small wooden shack in the foreground, residential houses in the middle distance and a tree-covered hill under a clear blue sky in the background, daytime lighting."
+    gen_image = "gen_1.jpg"
+    # explain_diff("data/origin/origin_1.jpg", gen_image, pre_prompt)
+    improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
