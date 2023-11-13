@@ -11,6 +11,10 @@ api_key = os.environ['OPENAI_API_KEY_V']
 # argument "image_path": string
 # return "prompt": string
 def create_init_prompt(image_url):
+    if not os.path.exists(image_url):
+            raise Exception("The image does not exist: " + image_url)
+    image_url = encode_image(image_url)
+    
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}"
@@ -50,5 +54,5 @@ def create_init_prompt(image_url):
     return prompt
 
 # テスト
-prompt = create_init_prompt("data/origin/origin_1.jpg")
-print(prompt)
+# prompt = create_init_prompt("data/image_1/origin_1.jpg")
+# print(prompt)
