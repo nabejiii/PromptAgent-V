@@ -49,14 +49,16 @@ class search_beam():
         new_beam = []
         while not self.current_top_beams.empty():
             prompt, image, image_layer, score = self.current_top_beams.get()
+            current_img_num = 0
             for j in range(self.beam_width):
                 # generate image
                 new_prompt = improve_prompt(self.origin_image, image, prompt)
                 new_image_http = create_image(new_prompt)
-                new_image = os.path.join(self.directory, "image_" + str(self.image_num) + "_" + str(image_layer + 1) + "_" + str(len(self.images)) + ".jpg")
+                new_image = os.path.join(self.directory, "image_" + str(self.image_num) + "_" + str(image_layer + 1) + "_" + str(current_img_num) + ".jpg")
                 save_image(new_image, new_image_http)
                 new_score = image_val(self.origin_image, new_image)
                 new_beam.append((new_prompt, new_image, image_layer + 1, new_score))
+                current_img_num += 1
 
         top_beam = sorted(new_beam, key=lambda x: x[3], reverse=True)[:self.beam_width]
 
@@ -74,7 +76,7 @@ class search_beam():
         for i in range(max_layer):
             self.beam_step(i)
 
-        self.store_evaluation(self.image_num, self.prompts, self.image_layers, self.scores)
+        self.store_evaluation()
 
     def store_evaluation(self):
         file_path = os.path.join(self.directory, "evaluation.csv")
