@@ -69,5 +69,5 @@ class greedy_search():
 
         print(f"Prompts and evaluations successfully saved to {file_path}")
         
-# s = search(1, "data_1")
+# s = greedy_search(1, "greedy_1")
 # s.store_evaluation()
