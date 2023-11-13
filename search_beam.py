@@ -1,7 +1,7 @@
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 import csv
-# from openai import OpenAI
+from openai import OpenAI
 import queue 
 
 from create_init_prompt import create_init_prompt
@@ -12,7 +12,7 @@ from image import image_val, create_image, save_image
 
 
 class search_beam():
-    def __init__(self, image_num, dir_name, beam_width):
+    def __init__(self, image_num, dir_name, beam_width, num):
         # load_dotenv()
         self.image_num = image_num
         self.origin_image = os.path.join("data", "image_" + str(image_num), "origin_" + str(image_num) + ".jpg")
@@ -26,6 +26,7 @@ class search_beam():
         if not os.path.exists(self.directory):
             os.makedirs(self.directory)
 
+        self.num = num
         self.beam_width = beam_width
         self.prompts = []
         self.diffs = []
@@ -47,14 +48,14 @@ class search_beam():
         init_score = image_val(self.origin_image, init_image)
         self.scores.append(init_score)
 
-        self.current_top_beams.put((init_prompt, init_image, init_layer, init_score))
+        self.current_top_beams.put((init_prompt, init_image, init_layer, init_score, 0))
 
     def beam_step(self, layer):
         print(f"Beam step layer: {layer}")
         new_beam = []
+        current_img_num = 0
         while not self.current_top_beams.empty():
             prompt, image, image_layer, score, diff = self.current_top_beams.get()
-            current_img_num = 0
             for j in range(self.beam_width):
                 print(f"Beam step layer: {layer}, image: {current_img_num}")
                 # generate image
@@ -66,7 +67,7 @@ class search_beam():
                 new_beam.append((new_prompt, new_image, image_layer + 1, new_score, diff))
                 current_img_num += 1
 
-        top_beam = sorted(new_beam, key=lambda x: x[3], reverse=True)[:self.beam_width]
+        top_beam = sorted(new_beam, key=lambda x: x[3], reverse=True)[:self.num]
 
         for beam in top_beam:
             self.current_top_beams.put(beam)
@@ -94,3 +95,7 @@ class search_beam():
                 image_id += 1
 
         print(f"Prompts and evaluations successfully saved to {file_path}")
+
+if __name__ == "__main__":
+    search_beam = search_beam(1, "search_beam", 3, 3)
+    search_beam.search_beam(2) #max_layer
