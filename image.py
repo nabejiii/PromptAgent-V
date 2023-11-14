@@ -29,6 +29,8 @@ def encode_image(image_path):
 # argument "image_path1": string, "image_path2": string
 # return "distance": float
 def image_val(img_path1, img_path2):
+    img_path1 = encode_image(img_path1)
+    img_path2 = encode_image(img_path2)
     vtr = imgsim.Vectorizer()
 
     img0 = cv2.imread(img_path1)
@@ -73,8 +75,8 @@ def create_image(prompt):
     image_url = response.json()["data"][0]["url"]
     return image_url
 
-if __name__ == "__main__":
-    # テスト
-    prompt = "High-resolution photograph of a contemporary rural Japanese landscape with a modern wooden shack in the foreground, showing power lines and parked cars, residential houses with recent architectural designs scattered in the middle ground, and lush, tree-covered hills in the background, under a clear blue sky with bright daylight."
-    image_url = create_image(prompt)
-    print(image_url)
+# if __name__ == "__main__":
+#     # テスト
+#     prompt = "High-resolution photograph of a contemporary rural Japanese landscape with a modern wooden shack in the foreground, showing power lines and parked cars, residential houses with recent architectural designs scattered in the middle ground, and lush, tree-covered hills in the background, under a clear blue sky with bright daylight."
+#     image_url = create_image(prompt)
+#     print(image_url)
