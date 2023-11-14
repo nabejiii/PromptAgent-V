@@ -58,10 +58,10 @@ def create_image(prompt):
         "Authorization": f"Bearer {api_key}"
     }
     payload = {
-        "model": "dall-e-3",
+        "model": "dall-e-2",
         "prompt": prompt,
         "n": 1,
-        "size": "1024x1024",
+        "size": "512x512",
     }
     response = requests.post(
         "https://api.openai.com/v1/images/generations",

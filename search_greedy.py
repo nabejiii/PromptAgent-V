@@ -3,11 +3,11 @@ import os
 from dotenv import load_dotenv
 import csv
 
-# from create_init_prompt import create_init_prompt
-# from improvement import improve_prompt
-# from image import image_val, create_image, save_image
+from create_init_prompt import create_init_prompt
+from improvement import improve_prompt
+from image import image_val, create_image, save_image
 
-from mock import image_val, create_image, save_image, improve_prompt, create_init_prompt
+# from mock import image_val, create_image, save_image, improve_prompt, create_init_prompt
 
 class greedy_search():
     def __init__(self, image_num, dir_name):
@@ -24,6 +24,7 @@ class greedy_search():
         if not os.path.exists(self.directory):
             os.makedirs(self.directory)
         
+        self.diffs = ["none"]
         self.prompts = []
         self.images = []
         self.scores = []
@@ -41,7 +42,7 @@ class greedy_search():
         
     def greedy_step(self):
         # generate image
-        new_prompt = improve_prompt(self.origin_image, self.images[-1], self.prompts[-1])
+        diff, new_prompt = improve_prompt(self.origin_image, self.images[-1], self.prompts[-1])
         
         new_image_http = create_image(new_prompt)
         new_image = os.path.join(self.directory, "image_" + str(self.image_num) + "_" + str(len(self.images)) + ".jpg")
@@ -49,6 +50,7 @@ class greedy_search():
         
         new_score = image_val(self.origin_image, new_image)
         
+        self.diffs.append(diff)
         self.prompts.append(new_prompt)
         self.images.append(new_image)
         self.scores.append(new_score)
@@ -56,6 +58,7 @@ class greedy_search():
     def search(self, max_layer):
         for i in range(max_layer):
             self.greedy_step()
+            print("{}/{} steps completed".format(i+1, max_layer))
         self.store_evaluation()
 
     def store_evaluation(self):
@@ -64,13 +67,13 @@ class greedy_search():
 
         with open(file_path, 'a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(["ID", "Prompt", "Image", "Evaluation"])
-            for prompt, image, score in zip(self.prompts, self.images, self.scores):
-                writer.writerow([image_id, prompt, image, score])
+            writer.writerow(["ID", "Diff", "Prompt", "Image", "Evaluation"])
+            for diff, prompt, image, score in zip(self.diffs, self.prompts, self.images, self.scores):
+                writer.writerow([image_id, diff, prompt, image, score])
                 image_id += 1
                 
         print(f"Prompts and evaluations successfully saved to {file_path}")
 
-# if __name__ == "__main__":
-#     greedy = greedy_search(1, "greedy_1")
-#     greedy.search(10)
+if __name__ == "__main__":
+    greedy = greedy_search(1, "greedy_3")
+    greedy.search(10)
