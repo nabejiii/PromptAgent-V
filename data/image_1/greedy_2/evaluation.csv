@@ -1,0 +1,12 @@
+ID,Diff,Prompt,Image,Evaluation
+0,none,"Photorealistic image of a wooden shed in the foreground on a clear day, with a background of a green hill with trees and Japanese residential houses under a blue sky with few clouds.",data/image_1/greedy_2/image_1_0.jpg,20.792385
+1,"- The environment should be more open, with a clear view of the hill and residential houses without dense, obstructing vegetation.
+- The shed should be wooden with a simple design and located in the center of the image to make it more prominent.
+- The scene should have ample open space in the foreground, showcasing the flat ground directly in front of the shed.","Photorealistic image of a central wooden shed with a simple cabin-like design on a flat, open field. The foreground is spacious and void of obstructions, featuring a view of a lush green hill with sparse trees, Japanese-style residential houses, and power lines under a clear blue sky with minimal clouds. The atmosphere conveys a clear, sunny day, with the surrounding environment well integrated and the shed as the central focus of the composition.",data/image_1/greedy_2/image_1_1.jpg,25.137938
+2,"- cartoon-like illustration
+- stylized, smooth surface of the shed
+- stylized representation of the environment
+- abstract shapes for trees
+- gradient blue sky without clouds
+- simplistic detail and complexity","Photorealistic image of a rustic wooden shed with a detailed, textured exterior centrally located on a flat, open field. The foreground shows a maintained grassy area, leading to a background of densely vegetated green hills with sporadic trees, Japanese-style residential houses with distinctive tiled roofs, and visible power lines extending into the distance under a vibrant blue sky dotted with realistic clouds. The scene captures a sunny day with natural lighting and shadows, portraying a tranquil, rural Japanese landscape with the shed prominently in the frame.
+```",data/image_1/greedy_2/image_1_2.jpg,25.623558
