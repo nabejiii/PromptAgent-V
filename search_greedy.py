@@ -75,5 +75,5 @@ class greedy_search():
         print(f"Prompts and evaluations successfully saved to {file_path}")
 
 if __name__ == "__main__":
-    greedy = greedy_search(1, "greedy_2")
-    greedy.search(2)
+    greedy = greedy_search(1, "greedy_3")
+    greedy.search(10)
