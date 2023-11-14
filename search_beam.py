@@ -67,15 +67,18 @@ class search_beam():
                 new_beam.append((new_prompt, new_image, image_layer + 1, new_score, diff))
                 current_img_num += 1
 
-        top_beam = sorted(new_beam, key=lambda x: x[3])[:self.num]
+        sorted_beam = sorted(new_beam, key=lambda x: x[3])
 
-        for beam in top_beam:
-            self.current_top_beams.put(beam)
+        beam_num = 0
+        for beam in sorted_beam:
+            if beam_num < self.num:
+                self.current_top_beams.put(beam)
             self.prompts.append(beam[0])
             self.images.append(beam[1])
             self.image_layers.append(beam[2])
             self.scores.append(beam[3])
             self.diffs.append(beam[4])
+            beam_num += 1
         
     def search_beam(self, max_layer):
         for i in range(max_layer):
