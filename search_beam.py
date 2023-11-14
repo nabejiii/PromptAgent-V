@@ -1,27 +1,27 @@
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import csv
-from openai import OpenAI
+# from openai import OpenAI
 import queue 
 
-from create_init_prompt import create_init_prompt
-from improvement import improve_prompt
-from image import image_val, create_image, save_image
+# from create_init_prompt import create_init_prompt
+# from improvement import improve_prompt
+# from image import image_val, create_image, save_image
 
-# from mock import create_init_prompt, improve_prompt, image_val, create_image, save_image
+from mock import create_init_prompt, improve_prompt, image_val, create_image, save_image
 
 
 class search_beam():
     def __init__(self, image_num, dir_name, beam_width, num):
-        load_dotenv()
+        # load_dotenv()
         self.image_num = image_num
         self.origin_image = os.path.join("data", "image_" + str(image_num), "origin_" + str(image_num) + ".jpg")
         if not os.path.exists(self.origin_image):
             raise Exception("The image does not exist: " + self.origin_image)
         
-        self.client = OpenAI(
-            api_key=os.environ["OPENAI_API_KEY_V"],
-        )
+        # self.client = OpenAI(
+        #     api_key=os.environ["OPENAI_API_KEY_V"],
+        # )
         self.directory = os.path.join("data", "image_" + str(self.image_num), dir_name)
         if not os.path.exists(self.directory):
             os.makedirs(self.directory)
@@ -59,7 +59,7 @@ class search_beam():
             for j in range(self.beam_width):
                 print(f"Beam step layer: {layer}, image: {current_img_num}")
                 # generate image
-                new_prompt, diff = improve_prompt(self.origin_image, image, prompt)
+                diff, new_prompt = improve_prompt(self.origin_image, image, prompt)
                 new_image_http = create_image(new_prompt)
                 new_image = os.path.join(self.directory, "image_" + str(self.image_num) + "_" + str(image_layer + 1) + "_" + str(current_img_num) + ".jpg")
                 save_image(new_image, new_image_http)
@@ -98,4 +98,4 @@ class search_beam():
 
 if __name__ == "__main__":
     search_beam = search_beam(1, "search_beam", 3, 3)
-    search_beam.search_beam(2) #max_layer
+    search_beam.search_beam(3) #max_layer
