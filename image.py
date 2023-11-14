@@ -5,6 +5,7 @@ import cv2
 import requests
 import os
 from dotenv import load_dotenv
+import time
 
 load_dotenv()
 
@@ -63,17 +64,23 @@ def create_image(prompt):
         "n": 1,
         "size": "512x512",
     }
-    response = requests.post(
-        "https://api.openai.com/v1/images/generations",
-        headers=headers,
-        json=payload
-    )
-    response.raise_for_status()
+    while True:
+        response = requests.post(
+            "https://api.openai.com/v1/images/generations",
+            headers=headers,
+            json=payload
+        )
+        if response.status_code == 429:
+            print("Rate limit exceeded. Sleeping for a while and retrying...")
+            time.sleep(5)  # 5秒待ってからリトライ
+            continue
 
-    # print(response.json())
+        response.raise_for_status()
 
-    image_url = response.json()["data"][0]["url"]
-    return image_url
+        # print(response.json())
+
+        image_url = response.json()["data"][0]["url"]
+        return image_url
 
 # if __name__ == "__main__":
 #     # テスト
