@@ -2,6 +2,7 @@ import os
 import re
 from openai import OpenAI
 from dotenv import load_dotenv
+import time
 
 from image import encode_image
 
@@ -16,45 +17,53 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
     encoded_origin_image = encode_image(origin_image)
     encoded_gen_image = encode_image(gen_image)
     
-    response = client.chat.completions.create(
-        model="gpt-4-vision-preview",
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": f"The objective is to create the best prompt to generate the first given image in Dalle-3. I generated the second image using Dalle-3 by the prompt {pre_prompt}. First, explain the difference between the two given images. And then, based on the initial prompt and the difference between the generated image and the target image, improve the prompt to generate the first given image in Dalle-3."},
-                    {
-                        "type": "image_url",
-                        "image_url": encoded_origin_image,
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": encoded_gen_image,
-                    },
-                    {
-                        "type": "text",
-                        "text": "Generate with the following style: \"diff:\n<diff>\n\nprompt:\n<new prompt>\"",
-                    },
-                    {
-                        "type": "text",
-                        "text": "In the <diff> and <new prompt> sections, output only the contents of the diff and the new prompt.",
-                    }
-                ],
-            }
-        ],
-        max_tokens=1000,
-    )
-    
-    if response.choices[0].finish_reason != None:
-        print("explain_diff error, finish_reason:", response.choices[0].finish_reason)
-        exit(1)
-    
-    diff, prompt = extract_diff_and_prompt(response.choices[0].message.content)
-    # 両端のクォーテーションマークを削除
-    if prompt.startswith('"') and prompt.endswith('"'):
-        prompt = prompt[1:-1]
-    
-    return diff, prompt
+    while True:
+        response = client.chat.completions.create(
+            model="gpt-4-vision-preview",
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": f"The objective is to create the best prompt to generate the first given image in Dalle-3. I generated the second image using Dalle-3 by the prompt {pre_prompt}. First, explain the difference between the two given images. And then, based on the initial prompt and the difference between the generated image and the target image, improve the prompt to generate the first given image in Dalle-3."},
+                        {
+                            "type": "image_url",
+                            "image_url": encoded_origin_image,
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": encoded_gen_image,
+                        },
+                        {
+                            "type": "text",
+                            "text": "Generate with the following style: \"diff:\n<diff>\n\nprompt:\n<new prompt>\"",
+                        },
+                        {
+                            "type": "text",
+                            "text": "In the <diff> and <new prompt> sections, output only the contents of the diff and the new prompt.",
+                        }
+                    ],
+                }
+            ],
+            max_tokens=1000,
+        )
+
+        if response.status_code == 429:
+            print("Rate limit exceeded. Sleeping for a while and retrying...")
+            time.sleep(5)  # 5秒待ってからリトライ
+            continue
+        
+        if response.choices[0].finish_reason != None:
+            print("explain_diff error, finish_reason:", response.choices[0].finish_reason)
+            exit(1)
+
+        response.raise_for_status()
+        
+        diff, prompt = extract_diff_and_prompt(response.choices[0].message.content)
+        # 両端のクォーテーションマークを削除
+        if prompt.startswith('"') and prompt.endswith('"'):
+            prompt = prompt[1:-1]
+        
+        return diff, prompt
 
 def extract_diff_and_prompt(text):
     diff_pattern = r'diff:\n(.*?)\n\nprompt:'
