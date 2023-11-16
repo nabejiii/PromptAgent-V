@@ -65,30 +65,30 @@ def create_image(prompt):
     }
 
     retries = 0
-    while retries < 5:
-        try:
-            response = requests.post(
-                "https://api.openai.com/v1/images/generations",
-                headers=headers,
-                json=payload,
-                timeout=300
-            )
-            response.raise_for_status()
+    while (1):
+        response = requests.post(
+            "https://api.openai.com/v1/images/generations",
+            headers=headers,
+            json=payload,
+            timeout=300
+        )
+        response.raise_for_status()
 
-            if response.status_code == 429:
-                print("Rate limit exceeded. Sleeping for a while and retrying...")
-                time.sleep(5)  # 5秒待ってからリトライ
-                continue
+        if response.status_code == 429:
+            print("Rate limit exceeded. Sleeping for a while and retrying...")
+            time.sleep(5)  # 5秒待ってからリトライ
+            continue
 
-            # print(response.json())
-
-            image_url = response.json()["data"][0]["url"]
-            return image_url
-        except Timeout:
+        elif response.status_code == 504 and retries < 5: 
             retries += 1
             print("Timeout. Retrying...")
             continue
 
+        # print(response.json())
+
+        image_url = response.json()["data"][0]["url"]
+        return image_url
+        
 # if __name__ == "__main__":
 #     # テスト
 #     prompt = "High-resolution photograph of a contemporary rural Japanese landscape with a modern wooden shack in the foreground, showing power lines and parked cars, residential houses with recent architectural designs scattered in the middle ground, and lush, tree-covered hills in the background, under a clear blue sky with bright daylight."
