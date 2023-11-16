@@ -45,7 +45,7 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
                     },
                     {
                         "type": "text",
-                        "text": "Generate with the following style: \"diff:\n<diff>\n\nprompt:\n<new prompt>\"",
+                        "text": "Generate with the following style: \"diff:\n<diff>\n\nprompt:\n<prompt>\"",
                     },
                     {
                         "type": "text",
