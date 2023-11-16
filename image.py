@@ -65,7 +65,7 @@ def create_image(prompt):
     }
 
     retries = 0
-    while (1):
+    while (retries < 5):
         response = requests.post(
             "https://api.openai.com/v1/images/generations",
             headers=headers,
@@ -79,7 +79,7 @@ def create_image(prompt):
             time.sleep(5)  # 5秒待ってからリトライ
             continue
 
-        elif response.status_code == 504 and retries < 5: 
+        elif response.status_code == 504: 
             retries += 1
             print("Timeout. Retrying...")
             continue
