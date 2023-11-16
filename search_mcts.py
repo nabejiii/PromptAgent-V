@@ -5,13 +5,13 @@ import csv
 import math
 from numpy import *
 
-# from create_init_prompt import create_init_prompt
-# from improvement import improve_prompt
-# from image import image_val, create_image, save_image
+from create_init_prompt import create_init_prompt
+from improvement import improve_prompt
+from image import image_val, create_image, save_image
 
-from mock import image_val, create_image, save_image, improve_prompt, create_init_prompt
+# from mock import image_val, create_image, save_image, improve_prompt, create_init_prompt
 
-parameter = {"expand_count": 3, "expand_width": 3, "image_num": 1}
+parameter = {"expand_count": 3, "expand_width": 5, "image_num": 1, "max_iteration": 30}
 
 class Node():
     def __init__(self, prompt, diff, cwd):
@@ -128,13 +128,18 @@ if __name__ == "__main__":
     if not os.path.exists(cwd):
         os.makedirs(cwd)
     
-    root_node = Node(create_init_prompt(parameter["image_num"]), "", cwd)
-    root_node.images.append(create_image(root_node.prompt))
+    origin_image = os.path.join("data", "image_" + str(parameter["image_num"]), "origin_" + str(parameter["image_num"]) + ".jpg")
+    root_node = Node(create_init_prompt(origin_image), "", cwd)
+    image = create_image(root_node.prompt)
+    image_path = os.path.join(cwd, "image_0.jpg")
+    save_image(image_path, image)
+    root_node.images.append(image_path)
     root_node.scores.append(image_val(root_node.origin_image, root_node.images[0]))
     root_node.expand()
     
-    for _ in range(10):
+    for i in range(parameter["max_iteration"]):
         root_node.evaluate()
+        print(f"iteration: {i+1}/{parameter['max_iteration']}")
         
     score, prompt, _, image = root_node.aggregation()
     print("score: " + str(score))
