@@ -30,8 +30,6 @@ def encode_image(image_path):
 # argument "image_path1": string, "image_path2": string
 # return "distance": float
 def image_val(img_path1, img_path2):
-    img_path1 = encode_image(img_path1)
-    img_path2 = encode_image(img_path2)
     vtr = imgsim.Vectorizer()
 
     img0 = cv2.imread(img_path1)
