@@ -61,5 +61,6 @@ def create_init_prompt(image_url):
         return prompt
 
 # テスト
-# prompt = create_init_prompt("data/image_1/origin_1.jpg")
-# print(prompt)
+if __name__ == "__main__":
+    prompt = create_init_prompt("data/image_1/origin_1.jpg")
+    print(prompt)
