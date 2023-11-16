@@ -70,7 +70,7 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
         
         diff, prompt = extract_diff_and_prompt(response.json().get("choices")[0].get("message").get("content"))
         # 両端のクォーテーションマークを削除
-        if prompt.startswith('"') and prompt.endswith('"'):
+        if prompt != None and prompt.startswith('"') and prompt.endswith('"'):
             prompt = prompt[1:-1]
         
         return diff, prompt

@@ -4,11 +4,11 @@ import csv
 from openai import OpenAI
 import queue 
 
-from create_init_prompt import create_init_prompt
-from improvement import improve_prompt
-from image import image_val, create_image, save_image
+# from create_init_prompt import create_init_prompt
+# from improvement import improve_prompt
+# from image import image_val, create_image, save_image
 
-# from mock import create_init_prompt, improve_prompt, image_val, create_image, save_image
+from mock import create_init_prompt, improve_prompt, image_val, create_image, save_image
 
 
 class search_beam():
@@ -100,5 +100,5 @@ class search_beam():
         print(f"Prompts and evaluations successfully saved to {file_path}")
 
 if __name__ == "__main__":
-    search_beam = search_beam(1, "search_beam", 3, 3)
+    search_beam = search_beam(12, "search_beam", 3, 2)
     search_beam.search_beam(3) #max_layer
