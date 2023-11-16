@@ -87,10 +87,10 @@ def extract_diff_and_prompt(text):
 
     return diff, prompt
 
-if __name__ == "__main__":
-    pre_prompt = "Photorealistic landscape of a rural scene with a small wooden shack in the foreground, residential houses in the middle distance and a tree-covered hill under a clear blue sky in the background, daytime lighting."
-    gen_image = "data/image_1/greedy_3/image_1_3.jpg"
-    diff, prompt = improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
-    print(diff)
-    print("=======================")
-    print(prompt)
+# if __name__ == "__main__":
+#     pre_prompt = "Photorealistic landscape of a rural scene with a small wooden shack in the foreground, residential houses in the middle distance and a tree-covered hill under a clear blue sky in the background, daytime lighting."
+#     gen_image = "data/image_1/greedy_3/image_1_3.jpg"
+#     diff, prompt = improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
+#     print(diff)
+#     print("=======================")
+#     print(prompt)
