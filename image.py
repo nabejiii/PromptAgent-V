@@ -64,28 +64,22 @@ def create_image(prompt):
         "size": "512x512",
     }
 
-    retries = 0
-    while (retries < 5):
-        response = requests.post(
-            "https://api.openai.com/v1/images/generations",
-            headers=headers,
-            json=payload,
-            timeout=300
-        )
-        response.raise_for_status()
-
-        if response.status_code == 429:
-            print("Rate limit exceeded. Sleeping for a while and retrying...")
-            time.sleep(5)  # 5秒待ってからリトライ
-            continue
-
-        elif response.status_code == 504: 
-            retries += 1
-            print("Timeout. Retrying...")
+    while True:
+        try:
+            response = requests.post(
+                "https://api.openai.com/v1/images/generations",
+                headers=headers,
+                json=payload,
+                timeout=300
+            )
+            response.raise_for_status()
+        except requests.exceptions.HTTPError as err:
+            print(f"HTTP error occurred: {err}")
+            print("Retrying in ten seconds...")
+            time.sleep(10)
             continue
 
         # print(response.json())
-
         image_url = response.json()["data"][0]["url"]
         return image_url
         
