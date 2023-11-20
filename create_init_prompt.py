@@ -45,13 +45,14 @@ def create_init_prompt(image_url):
     }
 
     while True:
-        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
-        if response.status_code == 429:
-            print("Rate limit exceeded. Sleeping for a while and retrying...")
-            time.sleep(5)  # 5秒待ってからリトライ
+        try:
+            response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+            response.raise_for_status()
+        except requests.exceptions.HTTPError as err:
+            print(f"HTTP error occurred: {err}")
+            print("Retrying in ten seconds...")
+            time.sleep(10)
             continue
-
-        response.raise_for_status()
 
         # print(response.json())
         prompt = response.json().get("choices")[0].get("message").get("content")
