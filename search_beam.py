@@ -4,11 +4,11 @@ import csv
 from openai import OpenAI
 import queue 
 
-from create_init_prompt import create_init_prompt
-from improvement import improve_prompt
-from image import image_val, create_image, save_image
+# from create_init_prompt import create_init_prompt
+# from improvement import improve_prompt, adjust_prompt_improvement
+# from image import image_val, create_image, save_image
 
-# from mock import create_init_prompt, improve_prompt, image_val, create_image, save_image
+from mock import create_init_prompt, improve_prompt, image_val, create_image, save_image, adjust_prompt_improvement
 
 
 class search_beam():
@@ -79,10 +79,47 @@ class search_beam():
             self.scores.append(beam[3])
             self.diffs.append(beam[4])
             beam_num += 1
+
+    def beam_step_with_learning_rate(self, layer, progress):
+        print(f"Beam step layer: {layer}")
+        new_beam = []
+        current_img_num = 0
+        while not self.current_top_beams.empty():
+            prompt, image, image_layer, score, diff = self.current_top_beams.get()
+            for j in range(self.beam_width):
+                print(f"Beam step layer: {layer}, image: {current_img_num}")
+                # generate image
+                diff, new_prompt = adjust_prompt_improvement(self.origin_image, image, prompt, progress)
+                new_image_http = create_image(new_prompt)
+                new_image = os.path.join(self.directory, "image_" + str(self.image_num) + "_" + str(image_layer + 1) + "_" + str(current_img_num) + ".jpg")
+                save_image(new_image, new_image_http)
+                new_score = image_val(self.origin_image, new_image)
+                new_beam.append((new_prompt, new_image, image_layer + 1, new_score, diff))
+                current_img_num += 1
+
+        sorted_beam = sorted(new_beam, key=lambda x: x[3])
+
+        beam_num = 0
+        for beam in sorted_beam:
+            if beam_num < self.num:
+                self.current_top_beams.put(beam)
+            self.prompts.append(beam[0])
+            self.images.append(beam[1])
+            self.image_layers.append(beam[2])
+            self.scores.append(beam[3])
+            self.diffs.append(beam[4])
+            beam_num += 1
         
     def search_beam(self, max_layer):
         for i in range(max_layer):
             self.beam_step(i)
+
+        self.store_evaluation()
+
+    def search_beam_with_learning_rate(self, max_layer):
+        for i in range(max_layer):
+            progress = i / max_layer
+            self.beam_step_with_learning_rate(i, progress)
 
         self.store_evaluation()
 
@@ -100,5 +137,6 @@ class search_beam():
         print(f"Prompts and evaluations successfully saved to {file_path}")
 
 if __name__ == "__main__":
-    search_beam = search_beam(12, "search_beam", 3, 2)
-    search_beam.search_beam(3) #max_layer
+    search_beam = search_beam(8, "search_beam", 3, 2)
+    # search_beam.search_beam(3) #max_layer
+    search_beam.search_beam_with_learning_rate(3) #max_layer

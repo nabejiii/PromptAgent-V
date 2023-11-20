@@ -74,6 +74,77 @@ def improve_prompt(origin_image, gen_image, pre_prompt):
             prompt = prompt[1:-1]
         
         return diff, prompt
+    
+def adjust_prompt_improvement(origin_image, gen_image, pre_prompt, current_progress):
+    encoded_origin_image = encode_image(origin_image)
+    encoded_gen_image = encode_image(gen_image)
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    text=""
+
+    if current_progress <= 0.5:
+        text = f"The objective is to create the best prompt to generate the first given image in Dalle-3. I generated the second image using Dalle-3 by the prompt {pre_prompt}. First, explain the difference between the two given images. And then, based on the initial prompt and the difference between the generated image and the target image, improve the prompt to generate the first given image in Dalle-3."
+    else:
+        text = f"The objective is to create the best prompt to generate the first given image in Dalle-3. I generated the second image using Dalle-3 by the prompt {pre_prompt}. First, explain the difference between the two given images. And then, based on the initial prompt and the difference between the generated image and the target image, improve the prompt to generate the first given image in Dalle-3. Make the adjustment small."
+
+
+    payload = {
+        "model": "gpt-4-vision-preview",
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": text
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": encoded_origin_image
+                        }
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": encoded_gen_image
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": "Generate with the following style: \"diff:\n<diff>\n\nprompt:\n<prompt>\"",
+                    },
+                    {
+                        "type": "text",
+                        "text": "In the <diff> and <new prompt> sections, output only the contents of the diff and the new prompt.",
+                    }
+                ]
+            }
+        ],
+        "max_tokens": 1000,
+    }
+
+    
+    while True:
+        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+
+        if response.status_code == 429:
+            print("Rate limit exceeded. Sleeping for a while and retrying...")
+            time.sleep(5)  # 5秒待ってからリトライ
+            continue
+        
+        response.raise_for_status()
+        
+        diff, prompt = extract_diff_and_prompt(response.json().get("choices")[0].get("message").get("content"))
+        # 両端のクォーテーションマークを削除
+        if prompt != None and prompt.startswith('"') and prompt.endswith('"'):
+            prompt = prompt[1:-1]
+        
+        return diff, prompt
 
 def extract_diff_and_prompt(text):
     diff_pattern = r'diff:\n(.*?)\n\nprompt:'
@@ -87,10 +158,10 @@ def extract_diff_and_prompt(text):
 
     return diff, prompt
 
-# if __name__ == "__main__":
-#     pre_prompt = "Photorealistic landscape of a rural scene with a small wooden shack in the foreground, residential houses in the middle distance and a tree-covered hill under a clear blue sky in the background, daytime lighting."
-#     gen_image = "data/image_1/greedy_3/image_1_3.jpg"
-#     diff, prompt = improve_prompt("data/image_1/origin_1.jpg", gen_image, pre_prompt)
-#     print(diff)
-#     print("=======================")
-#     print(prompt)
+if __name__ == "__main__":
+    pre_prompt = "Photorealistic landscape of a rural scene with a small wooden shack in the foreground, residential houses in the middle distance and a tree-covered hill under a clear blue sky in the background, daytime lighting."
+    gen_image = "data/image_1/greedy_3/image_1_3.jpg"
+    diff, prompt = adjust_prompt_improvement("data/image_1/origin_1.jpg", gen_image, pre_prompt, 0.6)
+    print(diff)
+    print("=======================")
+    print(prompt)

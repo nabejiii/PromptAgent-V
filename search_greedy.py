@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import csv
 
 from create_init_prompt import create_init_prompt
-from improvement import improve_prompt
+from improvement import improve_prompt, adjust_prompt_improvement
 from image import image_val, create_image, save_image
 
 # from mock import image_val, create_image, save_image, improve_prompt, create_init_prompt
@@ -54,10 +54,31 @@ class greedy_search():
         self.prompts.append(new_prompt)
         self.images.append(new_image)
         self.scores.append(new_score)
+
+    def greedy_step_with_learning_rate(self, progress):
+        # generate image
+        diff, new_prompt = adjust_prompt_improvement(self.origin_image, self.images[-1], self.prompts[-1])
+        
+        new_image_http = create_image(new_prompt)
+        new_image = os.path.join(self.directory, "image_" + str(self.image_num) + "_" + str(len(self.images)) + ".jpg")
+        save_image(new_image, new_image_http)
+        
+        new_score = image_val(self.origin_image, new_image)
+        
+        self.diffs.append(diff)
+        self.prompts.append(new_prompt)
+        self.images.append(new_image)
+        self.scores.append(new_score)
         
     def search(self, max_layer):
         for i in range(max_layer):
             self.greedy_step()
+            print("{}/{} steps completed".format(i+1, max_layer))
+        self.store_evaluation()
+
+    def search_with_learning_rate(self, max_layer):
+        for i in range(max_layer):
+            self.greedy_step_with_learning_rate(i / max_layer)
             print("{}/{} steps completed".format(i+1, max_layer))
         self.store_evaluation()
 

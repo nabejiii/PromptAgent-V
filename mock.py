@@ -16,3 +16,8 @@ def improve_prompt(origin_image, image_path, prompt):
 
 def create_init_prompt(origin_image):
     return "init_prompt"
+
+def adjust_prompt_improvement(origin_image, image_path, prompt, progress):
+    new_prompt = prompt + "improved"
+    diff = "diff"
+    return diff, new_prompt
