@@ -35,7 +35,8 @@ class search_beam():
         self.scores = []
         self.current_top_beams = queue.Queue() # current top beams
         
-        init_prompt = create_init_prompt(self.origin_image)
+        # init_prompt = create_init_prompt(self.origin_image)
+        init_prompt = "A serene nocturnal photograph of a diverse cityscape with illuminated skyscrapers by a calm river. The skyline features a mix of classical and cutting-edge architecture, with the centerpiece being a blue illuminated tower. On its right is a slightly taller tower with defferent highest floors. Soft lighting reflects off the water surface, enhancing the warm and tranquil urban ambiance. The sky is almost black."
         init_image_http = create_image(init_prompt)
         init_image = os.path.join(self.directory, "image_" + str(self.image_num) + "_" + str(len(self.images)) + ".jpg")
         save_image(init_image, init_image_http)
@@ -137,6 +138,6 @@ class search_beam():
         print(f"Prompts and evaluations successfully saved to {file_path}")
 
 if __name__ == "__main__":
-    search_beam = search_beam(8, "search_beam", 3, 2)
+    search_beam = search_beam(12, "search_beam", 3, 2)
     # search_beam.search_beam(3) #max_layer
     search_beam.search_beam_with_learning_rate(3) #max_layer
