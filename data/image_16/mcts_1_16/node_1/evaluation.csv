@@ -1,0 +1,7 @@
+Prompt,Diff
+"A clear view along a broad stone pathway leading to a traditional multi-tiered Japanese castle in the distance, with a towering stone wall on the left, sparse green shrubs on the right, under a bright blue sky.","- The first image showcases a broad stone pathway leading towards a traditional Japanese castle with multiple tiers, with a large stone wall to the left and minimal vegetation to the right.
+- The background features a clear blue sky and the castle has a dark blue roof.
+- The perspective is that of a person standing on the pathway at ground level, looking up towards the castle.
+- The foliage in the first image is less dense, with shrubs on one side of the pathway and none on the other, giving a more open feel to the scene."
+ID,Image,Evaluation
+0,25.94526,data/image_16/mcts_1/node_1/image_16_0.jpg

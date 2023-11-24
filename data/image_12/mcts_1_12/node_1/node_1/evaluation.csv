@@ -1,0 +1,6 @@
+Prompt,Diff
+"A photorealistic nighttime cityscape with a diverse skyline, showcasing a mix of architectural styles and building heights, illuminated by warm ambient lighting and individual light sources distinctly reflecting off a serene river surface. Emphasize the natural warmth of the golden lights, the variety in building facades, and the clear, starless night sky. Include subtle reflections on the water to create a realistic and tranquil urban scene with a natural color balance, avoiding overexaggeration of light reflections.","The first image shows a more natural and realistic cityscape with a variety of building designs and heights, some buildings in the foreground and others fading into the background, creating a sense of depth. The lighting appears more natural, with clearer distinctions between different light sources and a warmer overall color palette. Reflections in the water are more nuanced with the lights not overly stretched or distorted. The skyline is more varied, with distinct architectural elements on each building, and the sky appears darker and clearer, enhancing the sharpness of the building silhouettes."
+ID,Image,Evaluation
+0,23.456987,data/image_12/mcts_1/node_1/node_1/image_12_0.jpg
+1,21.097708,data/image_12/mcts_1/node_1/node_1/image_12_1.jpg
+2,27.630043,data/image_12/mcts_1/node_1/node_1/image_12_2.jpg

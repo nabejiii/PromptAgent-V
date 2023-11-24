@@ -1,0 +1,6 @@
+Prompt,Diff
+"A Japanese castle with intricate architectural details seen from a medium distance, the structure prominently perched above a broad tapered stone wall on the right, with a wide pathway on the left leading directly to it, surrounded by neatly trimmed bushes and mature trees under a clear blue sky.","The first image shows a clearer and closer view of the castle with more architectural details visible. There is a protective stone wall on the right with a wider base that narrows towards the top. The pathway on the left is broad and empty, leading directly towards the castle, and the natural greenery consists of neatly trimmed bushes and trees. The sky is a clear blue, and there are supporting structures next to the main castle. The second image, however, depicts the castle from a lower angle, partially obscured by greenery, and the stone wall is less prominent in the foreground."
+ID,Image,Evaluation
+0,24.745722,data/image_16/mcts_1/node_2/node_2/node_1/image_16_0.jpg
+1,27.365156,data/image_16/mcts_1/node_2/node_2/node_1/image_16_1.jpg
+2,23.087753,data/image_16/mcts_1/node_2/node_2/node_1/image_16_2.jpg

@@ -1,0 +1,8 @@
+Prompt,Diff
+"A Japanese castle with dark blue and white tiered roofs, situated atop an elevated stone base, viewed from a medium distance. The castle is approached by a narrow pathway on the left, bordered by a variety of mature trees and interspersed with lush, natural foliage. A significant portion of the photograph is dominated by a large, broad stone wall on the right, stretching from the foreground to the midground, with the sky above showing a sprinkling of clouds. The overall atmosphere is serene and the castle is bathed in natural sunlight.","- The first image displays a path on the left side, leading towards the castle but it is narrower compared to the generated image. 
+- The stone wall in the first image is larger and extends from the foreground into the middle ground of the photo, whereas the generated image shows a wall that is not as prominent.
+- The castle in the first image is farther away, creating a more pronounced sense of depth. 
+- The greenery in the first image is denser and more varied in size, with mature trees that appear taller and less manicured than those in the generated image.
+- The sky in the first image has a few scattered clouds, unlike the clear blue sky in the generated image."
+ID,Image,Evaluation
+0,26.221386,data/image_16/mcts_1/node_2/node_2/node_1/node_2/image_16_0.jpg

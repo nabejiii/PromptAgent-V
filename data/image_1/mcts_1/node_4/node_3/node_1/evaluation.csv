@@ -1,0 +1,4 @@
+Prompt,Diff
+"A larger wooden shed with two windows and a double sliding door situated on a sparsely grassed area, with distant residential houses, trees, and a mountainous, tree-covered hill in the background, under a clear blue sky, without nearby parked cars, roads, or visible power lines.","The first image shows a larger wooden shed with two windows and a double sliding door, situated on a patchy grass area without nearby parked cars. There are houses in the background but they are less prominent and farther away than in the second image. Additionally, the hill in the first image is more mountainous and densely covered with trees, while the hill in the second image appears smoother and less forested. The first image also lacks the visible road and electric wires that are prominently featured in the second image."
+ID,Image,Evaluation
+0,23.516241,data/image_1/mcts_1/node_4/node_3/node_1/image_1_0.jpg

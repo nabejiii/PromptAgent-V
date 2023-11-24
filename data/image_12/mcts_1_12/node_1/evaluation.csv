@@ -1,0 +1,6 @@
+Prompt,Diff
+"A realistic nighttime cityscape with modern skyscrapers illuminated with warm golden lights and subtle colorful highlights, detailed architectural designs visible on the building facades, with clear reflections of the various lights on the calm river surface, under a clear sky, with a natural color balance.","The first image features a more realistically represented nighttime cityscape with a focus on warmer colors, notably the golden hues on the buildings, with clearer architectural detail and less saturation, compared to the second image's more uniform and heavily saturated coloration. In the first image, the reflections on the water are more nuanced with distinct light patterns, whereas the second image has broader bands of reflection."
+ID,Image,Evaluation
+0,15.2590065,data/image_12/mcts_1/node_1/image_12_0.jpg
+1,18.154896,data/image_12/mcts_1/node_1/image_12_1.jpg
+2,18.018326,data/image_12/mcts_1/node_1/image_12_2.jpg

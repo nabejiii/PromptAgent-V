@@ -1,0 +1,9 @@
+Prompt,Diff
+"A large wooden shed with distinct texture and two windows, situated on an expansive grass patch with autumnal trees to its left, residential houses in the background, in front of a densely vegetated green hill, under a clear blue sky with multiple utility poles with crossbeams and transformers, and various power lines.","- The first image has a clearly larger and more detailed shed with two visible windows and distinct wooden texture.
+- There is no visible road in front of the shed in the first image, whereas the second image shows a shed beside a road with a clear white line.
+- In the first image, the grass patch is broader, and there's a pile of what appears to be branches or logs to the left of the shed.
+- The trees in the first image are more varied and lush, with some trees having different colored leaves, suggesting a different season, perhaps autumn.
+- The power lines in the first image are more numerous and prominent, and there are utility poles with crossbeams and transformers.
+- The background hill in the first image is greener and denser with vegetation, whereas the hill in the second image has more open grassy areas."
+ID,Image,Evaluation
+0,27.051462,data/image_1/mcts_1/node_4/node_3/node_3/image_1_0.jpg

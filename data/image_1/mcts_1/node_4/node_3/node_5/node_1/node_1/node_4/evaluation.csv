@@ -1,0 +1,9 @@
+Prompt,Diff
+"A simple wooden shed with pronounced reddish-brown paneled siding and a traditional triangular gabled roof, situated on a flat, sparsely vegetated dirt ground without stilts or a foundation. To the right of the shed, there is a group of residential Japanese-style houses with space between each structure. In the background, towering green mountains with dense tree coverage create a picturesque setting, and several utility poles with electrical wires stand to the left side of the frame. The sky above is clear, bright blue with minimal haze, enhancing the serene rural ambiance.","- The first image features a wooden shed with more pronounced reddish-brown paneled siding.
+- There is no visible foundation or stilts in the first image, and the shed sits directly on the flat ground.
+- The shed in the first image is more simplistic without additional details like windows or a door visible from the front angle.
+- The surrounding environment includes residential Japanese-style houses to the right, utility poles with electrical wires on the left, and grass-covered dirt ground with sparse vegetation.
+- In the background, there are lush green mountains with dense foliage.
+- The sky is a bright blue with a touch of light haze, and the atmosphere seems clear."
+ID,Image,Evaluation
+0,27.076597,data/image_1/mcts_1/node_4/node_3/node_5/node_1/node_1/node_4/image_1_0.jpg

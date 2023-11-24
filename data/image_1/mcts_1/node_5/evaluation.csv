@@ -1,0 +1,8 @@
+Prompt,Diff
+"Traditional Japanese wooden shed with a sloped roof prominently in the foreground, close to densely clustered Japanese-style houses with tiled roofs and surrounded by a lush, green tree-covered hill under a vibrant clear blue sky, with visible power lines and poles.","- The first image shows a single-story wooden shed with a sloped roof in the clear foreground, whereas the second image features a shed connected to another structure, making it unclear if it's a standalone building.
+- The hill in the first image is more prominent and lush with dense green trees, while the hill in the second image appears farther away and less lush.
+- The houses in the first image are traditional Japanese-style residential houses with tiled roofs, more densely clustered and appear closer to the shed. In contrast, the second image shows houses scattered with greater variety in architecture and some with colorful roofs.
+- The power lines in the first image are more prominent, and there are multiple visible poles.
+- There's a clear blue sky in both images, but the first image exhibits a more vibrant shade of blue without any clouds."
+ID,Image,Evaluation
+0,26.771517,data/image_1/mcts_1/node_5/image_1_0.jpg

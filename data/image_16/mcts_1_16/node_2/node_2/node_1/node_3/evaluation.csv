@@ -1,0 +1,6 @@
+Prompt,Diff
+"A photorealistic image of an authentic Japanese castle with a complex tiered roof design seen from a medium distance. The castle stands tall on a substantial stone wall foundation to the right, with a pathway leading towards it on the left. The surrounding landscape features diverse types of mature trees and variously shaped bushes under a clear blue sky, captured in a natural setting reflecting a typical scene in Japan.","The first image shows a real Japanese castle with a visible stone wall foundation on the right, whereas the second image depicts a digitally rendered castle with a less prominent stone base surrounded by spherical trimmed bushes. The real castle has a more complex design with multiple roof layers and a surrounding environment with diverse vegetation, including mature trees that are not as neatly arranged as in the generated image."
+ID,Image,Evaluation
+0,25.139603,data/image_16/mcts_1/node_2/node_2/node_1/node_3/image_16_0.jpg
+1,25.953753,data/image_16/mcts_1/node_2/node_2/node_1/node_3/image_16_1.jpg
+2,27.15622,data/image_16/mcts_1/node_2/node_2/node_1/node_3/image_16_2.jpg

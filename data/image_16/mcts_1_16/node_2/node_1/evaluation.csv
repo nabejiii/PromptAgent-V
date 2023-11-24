@@ -1,0 +1,4 @@
+Prompt,Diff
+"A Japanese castle viewed from a low angle, showcasing its layered architecture with striking blue and white roofing. The foreground features a detailed stone wall to the right, a paved path to the left leading towards the castle, and an array of carefully pruned green trees and bushes in a sunlit garden, all set against a partly cloudy sky.","The first image shows the Japanese castle in the distance with a large section of a sloped stone wall in the foreground to the right, a clear pathway to the left, and a bright but partially cloudy sky. The second image, however, portrays the castle much closer and from a lower angle, prominently displaying the castle's architecture with a clear view of its blue and white tiered roof, adjacent to a well-manicured garden with vibrant greenery and shaped trees. The sky in this image is entirely cloudless and bright blue."
+ID,Image,Evaluation
+0,26.370935,data/image_16/mcts_1/node_2/node_1/image_16_0.jpg

@@ -1,0 +1,4 @@
+Prompt,Diff
+"A multi-tiered Japanese castle viewed at a steep upward angle from the base of an imposing, broad, tapered stone wall to the right, with a modest pathway on the left leading towards it, flanked by varied, untrimmed greenery and mature trees, under a soft blue sky.","The first image features the Japanese castle at a steeper angle with heavier emphasis on the stone wall in the right foreground, dwarfing the path on the left. The foliage is more natural and less manicured, with an array of different trees and bushes, some encroaching on the path. The sky is not as vibrant, and the castle itself seems to have fewer levels and less intricate detail visible from this perspective."
+ID,Image,Evaluation
+0,26.773594,data/image_16/mcts_1/node_2/node_2/node_1/node_1/image_16_0.jpg

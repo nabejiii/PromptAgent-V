@@ -1,0 +1,6 @@
+Prompt,Diff
+"A vibrant day view of a Japanese castle with distinct blue and white tiered roofing, visible in the distance over an imposing stone wall to the right and a neat pathway on the left, bordered by well-manicured green shrubs, under a cloudless bright blue sky.","The first image shows a Japanese castle with a more pronounced blue and white color scheme, featuring multiple tiers with distinctly tiered roofing. The angle of the photo captures the stone wall prominently on the right side, leading up towards the castle, with a clear foreground pathway and manicured green shrubs on the left. The sky is bright blue without clouds. In contrast, the second image appears to have a warmer color tone, shows less of the stone wall, includes large stepping stones in the foreground unlike the clear pathway in the first, and presents differently shaped shrubbery and foliage that frame the picture."
+ID,Image,Evaluation
+0,25.803846,data/image_16/mcts_1/node_2/image_16_0.jpg
+1,25.002956,data/image_16/mcts_1/node_2/image_16_1.jpg
+2,27.385405,data/image_16/mcts_1/node_2/image_16_2.jpg

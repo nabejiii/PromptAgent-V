@@ -1,0 +1,8 @@
+Prompt,Diff
+"A small, rustic, reddish-brown wooden shed with horizontal planking and a sloping roof situated on a flat area with well-maintained grass, surrounded by residential homes and lush trees. In the background, there is a hill densely covered in green foliage with no visible structures on it, under a clear blue sky with minimal clouds. To the side, there are utility poles and wires that are less prominent and blend into the scenery.","- The first image features a reddish-brown wooden shed with a sloped roof and visible horizontal planking. The second image shows a larger, more barn-like structure with a gabled roof and no visible planking. 
+- The surroundings in the first image include residential houses, trees, and a more cultivated landscape, while the second image shows a more open field with sparser vegetation and no buildings in proximity to the shed.
+- Utility poles and wires are more prominent and numerous in the second image compared to the first, where they are less intrusive and blend more with the background.
+- The hill in the background of the first image is covered in greenery, whereas the hill in the second image has a rocky or barren appearance.
+- The sky in the first image contains fewer clouds and appears more uniformly blue than in the second image."
+ID,Image,Evaluation
+0,25.28499,data/image_1/mcts_1/node_4/node_4/image_1_0.jpg

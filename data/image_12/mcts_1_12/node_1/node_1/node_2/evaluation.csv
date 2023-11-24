@@ -1,0 +1,7 @@
+Prompt,Diff
+"A photorealistic image of a serene nighttime cityscape by the river, with a clear, cloudless sky and a harmonious blend of architectural styles. The buildings are well-defined with subtle and accurate detailing, bathed in soft, warm golden lighting that creates gentle reflections on the calm river's surface. Emphasize the authenticity of the urban scene with naturalistic illumination and a peaceful ambiance, avoiding overly dramatic light reflections or fantastical elements.","- The first image features a clear and relatively starless sky, whereas the second image includes clouds which suggest a more dynamic sky.
+- The lighting in the first image appears more natural and understated with no harsh overexaggeration, while the second image has more intense and dramatic light reflections in the water.
+- The architecture in the first image is captured with greater accuracy and detail, particularly the diverse designs of the buildings, compared to the stylized interpretation in the second image.
+- The first image showcases a serene and tranquil night scene, whereas the second image has a more dramatic and somewhat fantastical atmosphere."
+ID,Image,Evaluation
+0,25.769672,data/image_12/mcts_1/node_1/node_1/node_2/image_12_0.jpg

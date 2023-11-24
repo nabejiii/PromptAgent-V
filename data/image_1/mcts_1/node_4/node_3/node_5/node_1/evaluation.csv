@@ -1,0 +1,12 @@
+Prompt,Diff
+"A wooden shed with pronounced paneled siding and a reddish-brown color, situated on a spacious and dry dirt ground with sparse grass around it. The shed has a double-slanted roof without any visible doors. Positioned off to the right are residential Japanese-style houses with space between them. The backdrop features large, dominating green mountains covered in dense foliage. To the left, there are a few utility poles and electrical wires present. The scene is framed by a bright blue, lightly hazy sky.","- The first image shows a wooden shed with a more pronounced reddish-brown color and paneled siding texture. It's located on a dry, dirt ground with more visible space around it, and there's no shed door visible in the image. 
+- Residential houses can be seen in the distance but are less dominant and mostly to the right, compared to being on both sides in the second image.
+- The mountains in the first image are more prominent and occupy more of the background.
+- The sky in the first image is a brighter blue and has fewer clouds.
+- There are fewer visible utility poles and electrical wires in the first image, and they are mostly to the left, not as clustered as in the second image."
+ID,Image,Evaluation
+0,20.769012,data/image_1/mcts_1/node_4/node_3/node_5/node_1/image_1_0.jpg
+1,20.342781,data/image_1/mcts_1/node_4/node_3/node_5/node_1/image_1_1.jpg
+2,19.296432,data/image_1/mcts_1/node_4/node_3/node_5/node_1/image_1_2.jpg
+3,18.21239,data/image_1/mcts_1/node_4/node_3/node_5/node_1/image_1_3.jpg
+4,20.998367,data/image_1/mcts_1/node_4/node_3/node_5/node_1/image_1_4.jpg

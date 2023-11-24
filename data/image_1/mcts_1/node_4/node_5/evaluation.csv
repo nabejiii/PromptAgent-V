@@ -1,0 +1,8 @@
+Prompt,Diff
+"A reddish-brown wooden textured shed with visible planks and a slanted roof, positioned on a flat open area with sparse grass and surrounded by a variety of trees and shrubs. In the background, a large, densely vegetated green hill stretches across the scene. Multiple houses with gray and beige walls can be seen further back from the shed, and several utility poles are positioned around the perimeter of the area. The sky is bright blue, and the scene exudes a tranquil, rural atmosphere.","- The first image displays multiple buildings, including houses with gray and beige walls and traditional rooftops, located further back from the wooden shed.
+- The hill in the background of the first image appears greener and is covered in more dense vegetation compared to the hill in the second image, which has a more barren and rocky appearance.
+- There are more utility poles visible in the first image and positioned on both sides of the shed rather than only to the left.
+- The first image includes more flora, such as different varieties of trees and shrubs surrounding the shed.
+- The shed in the first image has a more textured wooden surface, with planks visible on its exterior, and a slightly slanted roof."
+ID,Image,Evaluation
+0,25.240536,data/image_1/mcts_1/node_4/node_5/image_1_0.jpg

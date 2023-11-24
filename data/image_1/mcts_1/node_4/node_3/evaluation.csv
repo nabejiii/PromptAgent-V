@@ -1,0 +1,11 @@
+Prompt,Diff
+"A small, textured, rustic reddish-brown wooden shed on a patch of grass with trees to its right, parked cars, and residential houses nearby, in front of a lush green, foliage-covered hill, under a bright blue sky with prominent utility poles and electric wires to the right.","- The first image shows a smaller, more textured wooden shed compared to the larger and smoother one in the second image.
+- The environment in the first image includes some trees, vehicles, and houses in the background, whereas the second image depicts a very flat and open area with sparse grass and no visible buildings or other human-made structures except for the utility poles.
+- The hill in the first image is lush and green with abundant foliage, while the hill in the second image appears more barren and rocky.
+- The utility poles and wires in the first image are more prominent and occupy the right side of the frame rather than the left."
+ID,Image,Evaluation
+0,21.085947,data/image_1/mcts_1/node_4/node_3/image_1_0.jpg
+1,19.147055,data/image_1/mcts_1/node_4/node_3/image_1_1.jpg
+2,20.934103,data/image_1/mcts_1/node_4/node_3/image_1_2.jpg
+3,18.348873,data/image_1/mcts_1/node_4/node_3/image_1_3.jpg
+4,20.6616,data/image_1/mcts_1/node_4/node_3/image_1_4.jpg

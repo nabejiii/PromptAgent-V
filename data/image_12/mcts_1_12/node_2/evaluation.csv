@@ -1,0 +1,4 @@
+Prompt,Diff
+"A photorealistic nighttime cityscape with a variety of modern and classic skyscrapers featuring a spiraling tower, all illuminated with vibrant, multicolored lights reflecting on a tranquil river's surface, under a dark clear sky, with a realistic high dynamic range.","The first image depicts a more realistic and natural nighttime cityscape with a mix of architectural styles among the skyscrapers, and different lighting colors reflecting vibrantly on the surface of the calm river. The prominent building appears to have a spiraling design, and the overall image has a more subdued and realistic tone. The sky seems relatively darker and clear without any signs of clouds compared to the second image."
+ID,Image,Evaluation
+0,23.23287,data/image_12/mcts_1/node_2/image_12_0.jpg

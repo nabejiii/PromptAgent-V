@@ -1,0 +1,5 @@
+Prompt,Diff
+"A clear day view of a traditional Japanese castle close up, with a wide pathway leading towards it and lush greenery at its base, showcasing its blue and white tiered roofing under a bright blue sky with no clouds.","- In the first image, the castle is visible in the distance, viewed over a substantial stone wall to the right and a neat pathway on the left. The rooftops have a distinct blue color with some white elements, and the sky is bright and cloudless.
+- The second image shows the castle more prominently and at a closer range, with the pathway leading towards it instead of alongside. The castle appears more integrated with the surrounding foliage, with greenery directly in front of the structure. Furthermore, the stone wall is not as dominant in this view."
+ID,Image,Evaluation
+0,29.610922,data/image_16/mcts_1/node_2/node_3/image_16_0.jpg

@@ -1,0 +1,11 @@
+Prompt,Diff
+"A weathered wooden shed with pronounced paneled siding and a natural reddish-brown color, placed on a level and dry patch of dirt with sporadic tufts of grass. The shed's roof is double-slanted with no doors visible. To the right, there are several closely spaced residential Japanese-style houses with distinct separation. In the background, large green mountains with dense foliage rise prominently. To the left of the scene, noticeable utility poles and electrical wires stand out. Overhead, the sky is a vivid blue with a slight haze.","- The first image shows a wooden shed that is more detailed with pronounced paneled siding, whereas the second one has smoother walls without visible panels.
+- In the first image, the shed's color is a more natural, weathered reddish-brown, while the second shed has a cleaner reddish-brown tone.
+- The first image features a shed situated on more level ground with sparse grass, while the second shows a shed on slightly uneven and more barren dirt ground.
+- There are visible residential buildings in the first image, reflecting a Japanese architectural style, which are not present in the second image.
+- The mountains in the first image are covered in dense green foliage and appear larger and more dominating than those in the second image.
+- The first image has utility poles and wires to the left, which are more prominent than in the second image.
+- The sky in the first image is brighter and has a lighter haze."
+ID,Image,Evaluation
+0,22.411343,data/image_1/mcts_1/node_4/node_3/node_5/node_1/node_2/image_1_0.jpg
+1,27.703203,data/image_1/mcts_1/node_4/node_3/node_5/node_1/node_2/image_1_1.jpg

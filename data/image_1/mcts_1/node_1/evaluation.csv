@@ -1,0 +1,4 @@
+Prompt,Diff
+"A rustic wooden shed on a grassy field with a single medium-sized tree to the left and a densely vegetated hill in the distance. Few scattered residential houses can be seen further back, under a cloudless blue sky.","The first image features a rustic wooden shed on an expanse of grass with a medium-sized tree to its left and a mountain with visible greenery in the background. The shed is situated on flat terrain. Residential houses are noticeable, but they are farther in the background and less densely packed than in the second image. The sky is clear blue with no visible clouds, and there is no visible structure, such as the tower present in the second image."
+ID,Image,Evaluation
+0,22.615355,data/image_1/mcts_1/node_1/image_1_0.jpg

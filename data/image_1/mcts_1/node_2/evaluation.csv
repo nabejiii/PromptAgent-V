@@ -1,0 +1,7 @@
+Prompt,Diff
+"A traditional-style reddish-brown wooden shed in the foreground with a prominent lush green hill immediately behind it, flanked by traditional residential houses, under a cloudless bright blue sky.","- The first image shows a wooden shed with a reddish-brown color, while the shed in the second image appears smaller and with a more neutral or muted color.
+- The green hill in the first image is more prominent and directly behind the shed, whereas the lush greenery in the second image is distributed throughout the scene without a single dominating hill.
+- The visible houses in the first image are closer to the shed and possess traditional designs, while the houses in the second image seem more varied in style and are situated at diverse levels along the hillside.
+- The first image has a clearer blue sky without any visible clouds, in contrast to the second image."
+ID,Image,Evaluation
+0,23.789043,data/image_1/mcts_1/node_2/image_1_0.jpg

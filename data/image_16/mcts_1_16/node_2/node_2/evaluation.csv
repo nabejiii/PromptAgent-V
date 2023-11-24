@@ -1,0 +1,10 @@
+Prompt,Diff
+"A Japanese castle seen from a distance, the structure prominently perched above a considerable stone wall on the right, with a long viewpoint of the pathway on the left leading towards it, surrounded by natural greenery under a slightly warm blue sky.","- In the first image the castle is visible from a distance and is located in the upper portion of the frame, while in the second image the castle fills a significant portion of the frame and appears closer.
+- The stone wall in the first image is to the right and very prominent, while in the second image, the wall is less dominant and not the focus.
+- The first image shows the pathway to the left leading towards the castle with more depth perspective, whereas in the second image, the pathway is at the bottom and appears as the forefront.
+- The surrounding trees and shrubs in the first image appear more natural and less manicured compared to the neatly trimmed greenery in the second.
+- The sky in the first image has a slightly warmer, less saturated blue tone than the second image, which has a bright blue sky."
+ID,Image,Evaluation
+0,25.41367,data/image_16/mcts_1/node_2/node_2/image_16_0.jpg
+1,27.939001,data/image_16/mcts_1/node_2/node_2/image_16_1.jpg
+2,24.84891,data/image_16/mcts_1/node_2/node_2/image_16_2.jpg

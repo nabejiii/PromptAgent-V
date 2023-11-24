@@ -1,0 +1,8 @@
+Prompt,Diff
+"A rustic wooden shed with vibrant reddish-brown paneled siding, situated on flat, sparsely grass-covered dirt ground. The shed has a traditional gabled roof and sits directly on the ground without visible stilts or foundations. To the right, there is a cluster of residential Japanese-style houses with space between them, and the background is dominated by lush, vibrant green mountains with dense foliage. The left side of the scene includes several utility poles with electrical wires. The sky is bright blue with a touch of light haze.",
+ID,Image,Evaluation
+0,22.342566,data/image_1/mcts_1/node_4/node_3/node_5/node_1/node_1/image_1_0.jpg
+1,26.568045,data/image_1/mcts_1/node_4/node_3/node_5/node_1/node_1/image_1_1.jpg
+2,25.152155,data/image_1/mcts_1/node_4/node_3/node_5/node_1/node_1/image_1_2.jpg
+3,24.896214,data/image_1/mcts_1/node_4/node_3/node_5/node_1/node_1/image_1_3.jpg
+4,22.316393,data/image_1/mcts_1/node_4/node_3/node_5/node_1/node_1/image_1_4.jpg

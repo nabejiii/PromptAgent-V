@@ -1,0 +1,10 @@
+Prompt,Diff
+"Rustic reddish-brown wooden shed on a flat open area with sparse grass, in front of a large green hill with no houses visible, under a bright blue sky with utility poles and wires to the left.","- The first image displays a rustic wooden shed with a reddish-brown appearance located in a flat, open area with short grass or ground cover, and there's a larger hill in the background that is lush and green, with no residential houses in direct view behind the shed. The skyline is lower in the first image, showing more sky above the hill. In contrast, the second image features a hill with multiple residential houses scattered around, with dense tree cover, and the shed has a light color and a more modern design with a different roofing style.
+- The first image has utility poles and wires on the left, which adds a touch of civilization to the otherwise natural scene, whereas the second image does not show any utility poles with similar prominence.
+- The overall lighting and saturation in the first image suggests a brighter day with more vivid colors compared to the second image, which has more muted tones."
+ID,Image,Evaluation
+0,21.175993,data/image_1/mcts_1/node_4/image_1_0.jpg
+1,24.253824,data/image_1/mcts_1/node_4/image_1_1.jpg
+2,24.761131,data/image_1/mcts_1/node_4/image_1_2.jpg
+3,24.019238,data/image_1/mcts_1/node_4/image_1_3.jpg
+4,20.556032,data/image_1/mcts_1/node_4/image_1_4.jpg

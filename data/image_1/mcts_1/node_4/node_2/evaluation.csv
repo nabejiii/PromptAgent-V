@@ -1,0 +1,10 @@
+Prompt,Diff
+"A rustic wooden shed with vertical planks and a pitched roof positioned in front of residential houses with tiled roofs, surrounded by natural uneven grass, with a lush green hill in the background, under a mostly clear blue sky with a few clouds and prominent utility poles to the left.","- In the first image, there is a rustic wooden shed with vertical planks and a pitched roof, while the second image shows a larger, more industrial shed with a vertical siding and a simple gable roof.
+- The first image's shed has two visible doors, and the second shed does not have visible doors.
+- The environment in the first image includes residential houses with tiled roofs and greenery, whereas the second image lacks any houses and shows minimal greenery.
+- Utility poles are more prominent in the first image and are positioned closer to the shed.
+- The grass in the first image appears more natural and uneven, compared to the well-maintained, flat grass in the second image.
+- The hill in the background of the first image is lush and green, whereas the hill in the second image has a more barren appearance with some shrubbery.
+- The sky in the first image shows very few clouds, whereas the second image's sky is clear blue without clouds."
+ID,Image,Evaluation
+0,27.273533,data/image_1/mcts_1/node_4/node_2/image_1_0.jpg

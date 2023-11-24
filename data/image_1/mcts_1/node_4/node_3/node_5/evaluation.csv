@@ -1,0 +1,8 @@
+Prompt,Diff
+"A medium-sized wooden shed with a double-slanted roof and no visible windows, located on a bare dirt area with sparse grass, surrounded by residential Japanese-style houses to the right, large green mountainous backdrop covered in dense foliage, utility poles, and electrical wires to the left, under a lightly hazy sky.","The first image shows a wooden shed with a double-slanted roof and no visible windows, situated on a dirt ground rather than a grass patch. There are multiple residential houses on the right, rather than parked cars, and the utility poles and electric wires are on the left side of the image, not the right. Moreover, the hill in the background appears more mountainous, and the foliage is denser. The sky seems slightly hazy rather than bright blue."
+ID,Image,Evaluation
+0,20.669455,data/image_1/mcts_1/node_4/node_3/node_5/image_1_0.jpg
+1,24.739645,data/image_1/mcts_1/node_4/node_3/node_5/image_1_1.jpg
+2,20.005718,data/image_1/mcts_1/node_4/node_3/node_5/image_1_2.jpg
+3,21.501148,data/image_1/mcts_1/node_4/node_3/node_5/image_1_3.jpg
+4,21.474586,data/image_1/mcts_1/node_4/node_3/node_5/image_1_4.jpg
